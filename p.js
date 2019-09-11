@@ -9,12 +9,12 @@ const run = (cmd) => {
                 return;
             } else {
                 resolve(stdout)
-                // console.log(stdout);
+                console.log(stdout);
             }
         });
     })
 }
-
+// 子进程 !== 紫禁城
 (async () => {
     await run('git add .')
     await run('git commit -m "test"')
