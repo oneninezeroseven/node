@@ -382,3 +382,5 @@ request('http://www.umei.cc/p/gaoqing/cn/', function (error, response, body) {
     })
 });
 ```
+
+- [酷狗音乐批量下载](https://github.com/Wscats/node-tutorial/issues/9)

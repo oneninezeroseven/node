@@ -3,16 +3,17 @@ const { exec } = require('child_process');
 exec('git add .', (err, stdout, stderr) => {
     if (err) {
         console.error(err);
+        exec('git commit -m "test"', (err, stdout, stderr) => {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            console.log(stdout);
+        });
         return;
     }
     console.log(stdout);
 });
-// exec('git commit -m "test"', (err, stdout, stderr) => {
-//     if (err) {
-//         console.error(err);
-//         return;
-//     }
-//     console.log(stdout);
-// });
+
 
 
