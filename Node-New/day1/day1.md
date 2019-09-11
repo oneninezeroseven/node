@@ -329,7 +329,60 @@ var data = fs.readFileSync('../text.txt', {
 console.log(data)
 ```
 
-同步和异步都可以有回调
+# 第三方模块
+
+gulp，jquery是手机上的第三方应用(微信，支付宝)，node是手机系统，npm是应用商店，fs,http相当于手机内置应用(短信，打电话，蓝牙)
+
+从npm包管理中心去下载gulp模块
+
+[npm官网](https://www.npmjs.com/)，是全球最大的JS模块开源托管平台
+
+服务器部署美国，`cnpm`淘宝镜像(阿里搭建了一个国内的npm镜像帮助国内开发者)，`facebook`镜像`yarn`
+
+```bash
+npm install gulp -global
+npm uninstall xxx
+npm i gulp -g
+npm i xxx
+npm i
+npm install # 可以依据package.json的依赖描述重新下载模块
+```
+不同电脑不同路径。会在这个地方拥有两个全局命令，gulp和gulp.cmd命令，让你在cmd命令直接可以运行gulp这个命令
+
+> C:\Users\国威\AppData\Roaming\npm
+
+如果局部安装，会在局部文件夹有一个node_modules文件夹
+
+npm初始化
+```bash
+npm init
+```
+生成package.json文件，这份文件记录，你安装的包信息，还有你这个npm项目的信息，最大用处是当你团队开发，推上git托管服务器，忽略掉node_modules，所以当你的队友把你的代码git拉下来的时候，package.json里面的信息，把模块重新下载回来
+
+```bash
+npm install xxx --save
+npm install xxx --s
+```
+dependencies刚需依赖，发布的时候要依赖模块
+
+```bash
+npm install xxx --save-dev
+npm install xxx --D
+```
+devDependencies，开发时候需要用到的模块，发布的时候要去除的，开发的时候利用
+
+执行命令，会去
+```bash
+"scripts": {
+    "start": "calc",
+    "test": "dir"
+},
+```
+```bash
+npm run xxx
+```
+
+# 同步和异步都可以有回调
 - 同步的回调没意义
 - 异步的回调有意义
 
