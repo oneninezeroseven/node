@@ -20,16 +20,22 @@ var app = express();
 
 // view engine setup
 // /day3/express-cli/views 合并路径
+// 输出数据(JSON，XML)res响应头带上json，而不是带html/jade结构，前后端，后端负责提供数据，前端负责渲染数据
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+// 就是请求会带上打印的日志，配置日志信息
 app.use(logger('dev'));
+// 请求的数据处理成json 处理post请求的 参数放请求体
 app.use(express.json());
+// 处理get请求 url上的参数
 app.use(express.urlencoded({ extended: false }));
+// 处理cookie
 app.use(cookieParser());
+// 处理静态文件，捕捉带后缀的文件 放前端的页面
 app.use(express.static(path.join(__dirname, 'public')));
 
-// 路由，处理前端各种请求
+// 路由，处理前端各种请求 处理前端请求
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/account', accountRouter);
@@ -49,5 +55,5 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+// 导出对象
 module.exports = app;

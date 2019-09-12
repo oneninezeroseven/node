@@ -42,6 +42,15 @@ npm install -g express-generator@4
 - app.js 是我们整个express主逻辑文件，入口文件
 - package.json
 
+xml (xmlhttprequest) json
+```html
+<title>标题</title>
+```
+json，体积小，操作性简单
+```js
+{title: "标题"}
+```
+
 - 加载模块
 ```js
 var express = require('express');
